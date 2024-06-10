@@ -8,7 +8,6 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 public class UniversityService {
-    Map<String, Student> students;
     Map<String, Course> courses;
 
     public float averageGradeByCourse(Course course){
@@ -19,6 +18,21 @@ public class UniversityService {
         float avg = (float) sum /course.getStudents().size();
         return avg;
     }
+
+    public float averageGradeByUniversity(University university){
+        float sum = 0.0F;
+        float students = 0.0F;
+
+        for(int n=0;n<university.courses().size();n++) {
+            for (int i = 0; i < university.courses().get(n).getStudents().size(); i++) {
+                sum += university.courses().get(n).getStudents().get(i).getGrade();
+                students++;
+            }
+        }
+            float avg = (float) sum /students;
+        return avg;
+    }
+
 
 
 
