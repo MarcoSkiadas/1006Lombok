@@ -62,5 +62,6 @@ public class Main {
         System.out.println();
         System.out.println(universityService.averageGradeByUniversity(university));
 
+        System.out.println(universityService.getAllGoodStudents(university));
     }
 }

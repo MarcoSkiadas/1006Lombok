@@ -3,6 +3,8 @@ package org.example;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor
@@ -31,6 +33,19 @@ public class UniversityService {
         }
             float avg = (float) sum /students;
         return avg;
+    }
+
+    public List<Student> getAllGoodStudents(University university){
+        List<Student> students = new ArrayList<>();
+        for(int i=0;i<university.courses().size();i++){
+            for(int j=0;j<university.courses().get(i).getStudents().size();j++){
+                if(university.courses().get(i).getStudents().get(j).getGrade()<=2){
+                    students.add(university.courses().get(i).getStudents().get(j));
+                }
+            }
+
+        }
+        return students;
     }
 
 
